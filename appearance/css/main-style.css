@@ -1,0 +1,14 @@
+@import url("glidemenu-style.css");
+@import url("logintab-style.css");
+@import url("header-style.css");
+
+body {
+	margin: 0;
+	font-family: Verdana;
+	font-size: 12px;
+	background: #f3f2f3;
+}
+
+a {
+	text-decoration: none;
+}
