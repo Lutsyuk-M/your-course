@@ -16,17 +16,22 @@ else {
 	$user_data = mysql_query("SELECT nickname,banned FROM users WHERE id='$user_id'",$db);
 	$user_data_array = mysql_fetch_array($user_data);
 
-	if($user_data_array["banned"] == 1) {
-		echo("Користувач ".$user_data_array["nickname"]." заблокований за порушення правил сервісу.");
+	if($user_data_array) {
+		if($user_data_array["banned"] == 1) {
+			echo("Користувач ".$user_data_array["nickname"]." заблокований за порушення правил сервісу.");
+		}
+		else {
+			$user_data = mysql_query("SELECT id,nickname,firstname,lastname,email,rdate,warn,country,l_score FROM users WHERE id='$user_id'");
+			$user_data_array = mysql_fetch_array($user_data);
+
+			printf("Дані користувача:</br>
+				Ім'я: %s %s</br>
+				E-Mail: %s</br>
+				", $user_data_array["lastname"], $user_data_array["firstname"], $user_data_array["email"]);
+		}
 	}
 	else {
-		$user_data = mysql_query("SELECT id,nickname,firstname,lastname,email,rdate,warn,country,l_score FROM users WHERE id='$user_id'");
-		$user_data_array = mysql_fetch_array($user_data);
-
-		printf("Дані користувача:</br>
-			Ім'я: %s %s</br>
-			E-Mail: %s</br>
-			", $user_data_array["lastname"], $user_data_array["firstname"], $user_data_array["email"]);
+		echo("За цим посиланням не знайдено користувача.");
 	}
 }
 ?>
