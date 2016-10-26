@@ -18,7 +18,7 @@ defined('_INCLUDE_') or die('Shit happens!');
 				echo("<a href='users.php?user_id=".$_SESSION["user_id"]."'>Профіль</a>");
 			}
 			else {
-				echo("<a href='users.php?status=need_login'>Профіль</a>");
+				echo("<a href='users.php?message=need_login'>Профіль</a>");
 			}
 		?>
 		</li>
