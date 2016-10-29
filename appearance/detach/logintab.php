@@ -5,10 +5,10 @@
 defined('_INCLUDE_') or die('Shit happens!');
 
 ?>
-<div id='h_content'>
-	<div id='login_button_align'><button type='button' class='l_button' id='login_button' onClick='$("#alert").overlay().load();'>Увійти</button></div>
-	<div class='overlay' id='alert'>
-		<h2><center>Вхід</center></h2>
+<div id='lmenu_input'>
+	<div class='right'><button id='login_button' onClick='$("#loginwindow").overlay().load();'>Увійти</button></div>
+	<div class='overlay' id='loginwindow'>
+		<h2 class='center'>Вхід</h2>
 		<p>
 			<form action='testreg.php' method='post'>
 				<p><input type='text' name='login' value='' placeholder='E-mail'></p>
@@ -23,5 +23,5 @@ defined('_INCLUDE_') or die('Shit happens!');
 				<div id='reg_href'><a href='reg.php'>Зареєструватися</a></div>
 			</form>
 		</p>
-	</div> 
+	</div>
 </div>
