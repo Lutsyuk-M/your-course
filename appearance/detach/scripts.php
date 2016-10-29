@@ -10,7 +10,7 @@ defined('_INCLUDE_') or die('Shit happens!');
 	<script type="text/javascript" src="appearance/js/jquery.tools.min.js"></script>
 	<script type="text/javascript">
       $(function() {    
-$("#alert").overlay({
+$("#loginwindow").overlay({
       finish: {top: 'center'},
       expose: '#2F2F2F'
 });
