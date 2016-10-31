@@ -16,8 +16,8 @@ include("system/functions/db/db_connect.php");     //Підключення ба
 
 <body>
 	<?php
-	include("appearance/detach/header.php");
-	include("appearance/detach/glidemenu.php");
+	include("appearance/detach/header.php");         //"Шапка" сайту
+	include("appearance/detach/glidemenu.php");     //"Гамбургер" меню
 
 	
 	?>

@@ -1,6 +1,6 @@
 <?php
-//
-//
+//Файл: scripts.php
+//Призначення: Зберігання усередині JavaScript
 
 defined('_INCLUDE_') or die('Shit happens!');
 ?>

@@ -1,4 +1,7 @@
 <?php
+//Файл: about.php
+//Призначення: Інформація про сайт
+
 define( '_INCLUDE_', 1 );
  
 include("system/functions/db/db_connect.php");     //Підключення бази данних
