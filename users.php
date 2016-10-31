@@ -10,7 +10,13 @@ if(isset($_GET["user_id"])) {
 }
 
 if(!isset($user_id)) {
-	echo("user_id не вказана!");
+	if(!isset($_SESSION["user_id"])) {
+		echo("Для перегляду данного розділу будь-ласка <a href='".$site_address."/login.php'>авторизуйтесь</a>.");
+	}
+	else {
+		$user_id = $_SESSION["user_id"];
+		goto user_profile;
+	}
 }
 else {
 	$user_data = mysql_query("SELECT nickname,banned FROM users WHERE id='$user_id'",$db);
@@ -21,6 +27,8 @@ else {
 			echo("Користувач ".$user_data_array["nickname"]." заблокований за порушення правил сервісу.");
 		}
 		else {
+			user_profile:
+
 			$user_data = mysql_query("SELECT id,nickname,firstname,lastname,email,rdate,warn,country,l_score FROM users WHERE id='$user_id'");
 			$user_data_array = mysql_fetch_array($user_data);
 
