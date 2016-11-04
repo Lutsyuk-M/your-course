@@ -2,6 +2,8 @@
 //Файл: courses.php
 //Призначення: Вивід та перегляд курсів
 
+define( '_INCLUDE_', 1 );
+
 include("system/data/site_data.php");     //Основні данні сайту
 include("system/functions/db/db_connect.php");     //Підключення до бази
 
@@ -35,10 +37,8 @@ if(!isset($course_id)) {
     }
 }
 else {
-    $course_data = mysql_query("SELECT banned FROM courses WHERE id='$course_id'",$db);
+    $course_data = mysql_query("SELECT banned FROM courses WHERE id='$course_id'");
     $course_data_array = mysql_fetch_array($course_data);
-
-    echo "Вибірка окремого курсу[TEST]</br>";
 
     if ($course_data_array == false) {     //Якщо не знайдено - повідом про це
         echo ("<p>За данним запитом не знайдено курсу!</p>");
@@ -52,8 +52,10 @@ else {
                 $course_data_array = mysql_fetch_array($course_data) or die(mysql_error());
 
                 printf("
-                    <p>%s</p>
-                    Автор курсу: <a href='%s/users.php?user_id=%s'>%s</a>", $course_data_array["title"], $site_address, $course_data_array["author_id"], $course_data_array["author_nick"]);
+                    <p><p>%s</p>
+                    Автор курсу: <a href='%s/users.php?user_id=%s'>%s</a></p>", $course_data_array["title"], $site_address, $course_data_array["author_id"], $course_data_array["author_nick"]);
+
+                include("lesson.php");
             }
     }
 }
