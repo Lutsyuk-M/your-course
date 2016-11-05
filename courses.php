@@ -16,7 +16,7 @@ if(isset($_GET["lesson_id"])) {
 }
 
 if(isset($lesson_id)) {
-    $lesson_data = mysql_query("SELECT * FROM lessons WHERE id='$lesson_id'");     //Берем дані з окремого уроку...
+    $lesson_data = mysql_query("SELECT id,author_id,mcourse_id,title,content,cdate FROM lessons WHERE id='$lesson_id'");
     $lesson_data_array = mysql_fetch_array($lesson_data);
 
     if(!$lesson_data_array) {
@@ -24,8 +24,9 @@ if(isset($lesson_id)) {
     }
     else {
         printf("
+            <a href='%s/courses.php?course_id=%s'>Назад</a>
             <p>%s</p>
-            %s", $lesson_data_array["title"], $lesson_data_array["content"]);     //...і виводимо
+            %s", $site_address, $lesson_data_array["mcourse_id"], $lesson_data_array["title"], $lesson_data_array["content"]);
     }
 }
 else {
