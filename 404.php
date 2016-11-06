@@ -21,7 +21,7 @@ include("/system/data/site_data.php")
 			include("appearance/detach/glidemenu.php");
 		?>
 		<p align='center'>
-			<img src='/appearance/images/404/12.png'>
+			<img src='/appearance/images/404_image.png'>
 		</p>
 		<h1 class='center' id='title_404'>Sorry! Схоже що це помилка 404!</h1>
 		<p class='center' id='text_404'>
