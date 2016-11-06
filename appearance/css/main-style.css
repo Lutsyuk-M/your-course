@@ -3,11 +3,19 @@ body {
 	margin: 0;
 	font-family: Verdana;
 	font-size: 12px;
-	background: #f3f2f3;
+	background: #FBFCF6;
 }
 
 a {
-	text-decoration: none;
+	color: #646464;
+}
+
+a:hover {
+	color: #323232;
+}
+
+a:active {
+	color: #323264;
 }
 
 .left {
@@ -269,4 +277,15 @@ div.overlay div.close {
 #login_button:hover, #login_button:focus, #login_button:active {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   outline: none;
+}
+
+/* 404-STYLE */
+
+#title_404 {
+	font-family: 'Comic Sans MS';
+}
+
+#text_404 {
+	font-family: 'Trebuchet MS',Helvetica;
+	font-size: 1.2em;
 }
