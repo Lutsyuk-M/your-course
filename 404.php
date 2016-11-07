@@ -13,12 +13,12 @@ include("/system/data/site_data.php")
 		<title>Ой, 404!</title>
 		<link href='appearance/css/main-style.css' rel='stylesheet' type='text/css'>
 		<link rel='shortcut icon' href='appearance/images/favicon.png' type='image/x-icon'>
-		<?php include('appearance/detach/scripts.php'); ?>
+		<?php include('inc/scripts.php'); ?>
 	</head>
 	<body>
 		<?php
-			include("appearance/detach/header.php");
-			include("appearance/detach/glidemenu.php");
+			include("inc/header.php");
+			include("inc/glidemenu.php");
 		?>
 		<p align='center'>
 			<img src='/appearance/images/404_image.png'>

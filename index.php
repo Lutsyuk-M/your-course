@@ -10,14 +10,14 @@ include("system/functions/db/db_connect.php");     //Підключення ба
 	<link rel='shortcut icon' href='appearance/images/favicon.png' type='image/x-icon'>
 	<meta http-equiv='Content-Type' content='text/html'; charset=utf-8' />
 	<title>YourCourses</title>
-	<?php include('appearance/detach/scripts.php'); ?>
+	<?php include('inc/scripts.php'); ?>
 	<link href='appearance/css/main-style.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	<?php
-	include("appearance/detach/header.php");         //'Шапка' сайту
-	include("appearance/detach/glidemenu.php");     //'Гамбургер' меню
+	include("inc/header.php");         //'Шапка' сайту
+	include("inc/glidemenu.php");     //'Гамбургер' меню
 
 	
 	?>
