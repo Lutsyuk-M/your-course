@@ -20,7 +20,7 @@ defined('_INCLUDE_') or die('Shit happens!');
 					</label>
 				</p>
 				<p class='submit'><input type='submit' name='commit' value='Увійти'></p>
-				<div id='reg_href'><a href='reg.php'>Зареєструватися</a></div>
+				<div id='reg_href'><a href='?action=registration'>Зареєструватися</a></div>
 			</form>
 		</p>
 	</div>

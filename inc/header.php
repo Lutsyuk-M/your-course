@@ -8,6 +8,6 @@ if(!isset($_SESSION["user_nickname"])) {
 	include("logintab.php");     //Вставка кнопки входу
 }
 else {
-	echo("<span class='right'>Привіт, ".$_SESSION["user_nickname"].".<a href='?logout=1'>Вихід</a></span>");   //Нік та кнопка "Вийти"
+	echo("<span class='right'>Привіт, ".$_SESSION["user_nickname"].".<a href='?action=logout'>Вихід</a></span>");   //Нік та кнопка "Вийти"
 }
 ?>
