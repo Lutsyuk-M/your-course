@@ -4,12 +4,14 @@
 
 session_start();
 
-include_once("system/data/site_data.php");
+include_once("system/site_data.php");
 
 if(!empty($_SESSION["user_id"]) and !empty($_SESSION["user_password"])) {
 	unset($_SESSION["user_id"]);
 	unset($_SESSION["user_password"]);
+	unset($_SESSION["user_nickname"]);
 
-	echo("Ви вийшли зі свого аккаунту!");
+	session_destroy();
 }
+header("Location: ".$site_address);
 ?>
