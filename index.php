@@ -11,17 +11,17 @@ if(isset($_GET["action"])) {
 }
 
 switch($action) {
-	case "auth":
+	case "auth":     //Вхід на сайт
 		include_once("inc/auth.php");
 		break;
-	case "logout":
+	case "logout":     //Вихід з сайту
 		include_once("inc/logout.php");
 		break;
-	case "about":
+	case "about":     //Про нас
 		$page_content_inc = "about";
 		include_once("template/main.php");
 		break;
-	case "error_404":
+	case "error_404":     //Помилка 404
 		$page_content_inc = "error_404";
 		include_once("template/main.php");
 		break;

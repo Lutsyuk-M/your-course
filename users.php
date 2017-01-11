@@ -12,7 +12,7 @@ include("system/functions/db_connect.php");     //База данних
 $page_content_inc = "view_user";     //Вказуємо шо саме виводиться на сторінці
 
 if(isset($_GET["user_id"])) {
-	$user_id = $_GET["user_id"];
+	$user_id = intval($_GET["user_id"]);
 }
 
 if(!isset($user_id)) {     //Чи є дані про те, кого треба "пробити"
@@ -22,14 +22,10 @@ if(!isset($user_id)) {     //Чи є дані про те, кого треба "
 	}
 }
 else {
-	$user_data = mysql_query("SELECT id,nickname,firstname,lastname,email,rdate,warn,banned,country,l_score FROM users WHERE id='$user_id'");
-	$user_data_array = mysql_fetch_array($user_data);
+		user_profile:     //Сюди переходить команда goto            |GOTO|
 
-	if($user_data_array) {
-		if($user_data_array["banned"] == 0) {
-			user_profile:     //Сюди переходить команда goto            |GOTO|
-		}
-	}
+		$user_data = mysql_query("SELECT id,nickname,firstname,lastname,email,rdate,warn,banned,l_score FROM users WHERE id='$user_id'");
+		$user_data_array = mysql_fetch_array($user_data);
 }
 
 include_once("template/main.php");     //Головний файл шаблону

@@ -10,15 +10,25 @@ else {
     }
     else {                                                      //Виводим данні з окремого курсу
         printf("
-            <p><p>%s</p>
-            Автор курсу: <a href='%s/users.php?user_id=%s'>%s</a></p>", $course_data_array["title"], $site_address, $course_data_array["author_id"], $course_data_array["author_nick"]);
+            <p>
+                <p>
+                    <h2>
+                        %s
+                    </h2>
+                </p>
+                <p>
+                    %s
+                </p>
+                Автор курсу: <a href='%s/users.php?user_id=%s'>%s</a>
+            </p>
+            ", $course_data_array["title"], $course_data_array["description"], $site_address, $course_data_array["author_id"], $course_data_array["author_nick"]);
         if(!$lessons_data) {
             echo("Поки що уроки відсутні");     //Але якщо їх немає, то пишемо повідомлення про це
         }
         else {
             while($lessons_data_array = mysql_fetch_array($lessons_data)) {
                 printf("
-                    <a href='%s/courses.php?course_id=%s&lesson_id=%s'>%s</a> %s</br>", $site_address, $course_id, $lessons_data_array["id"], $lessons_data_array["title"], $lessons_data_array["cdate"]);
+                    <a href='%s/courses.php?lesson_id=%s'>%s</a> %s</br>", $site_address, $lessons_data_array["id"], $lessons_data_array["title"], $lessons_data_array["cdate"]);
             }
         }
     }

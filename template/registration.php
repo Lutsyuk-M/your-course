@@ -1,7 +1,9 @@
 <?php
+
 defined('_INCLUDE_') or die('Shit happens!');
 
-if(isset($_SESSION["email"])) {
+
+if(isset($_SESSION["user_id"])) {
 	echo("Ви вже увійшли у аккаунт!");
 }
 else {
@@ -12,28 +14,45 @@ else {
 			echo("Ви не заповнили усі поля!");
 		}
 		else {
-			if($user_nickname_check and $user_email_check) {
-				echo("Ця електронна пошта та нік вже зареєстровані!");
-			}
-			elseif($user_nickname_check_array) {
-				echo("Цей нік вже використовується!");
-			}
-			elseif($user_email_check_array) {
-				echo("Ця електронна адреса вже використовується!");
-			}
-			else {
-				if($password != $password_repeat) {
-					echo("Паролі не співпадають!");
+			if($email_check_preg_match) {
+				if($nickname_check_preg_match) {
+					if($password_check_preg_match) {
+						if($user_nickname_check_array != false and $user_email_check_array != false) {
+							echo("Ця електронна пошта та нік вже зареєстровані!");
+						}
+						elseif($user_nickname_check_array) {
+							echo("Цей нік вже використовується!");
+						}
+						elseif($user_email_check_array) {
+							echo("Ця електронна адреса вже використовується!");
+						}
+						else {
+							if($password != $password_repeat) {
+								echo("Паролі не співпадають!");
+							}
+							else {
+								$show_regform = false;
+
+								printf("
+									<p>
+										Реєстрація пройшла успішно, але ваш акаунт не активовано.</br>
+										Ми відправили лист з кодом підтвердження на %s. Він буде дійсний напротязі 1 доби.</br>
+										Очікуйте лист напротязі 10 - 15 хвилин. Також перевірте папку \"Спам\".</br>
+									</p>
+								", $email);
+							}
+						}
+					}
+					else {
+						echo("Неправильний пароль!");
+					}
 				}
 				else {
-					printf("
-						<p>
-						Реєстрація пройшла успішно, але ваш акаунт не активовано.</br>
-						Ми відправили лист з кодом підтвердження на %s. Він буде дійсний напротязі 1 доби.</br>
-						Очікуйте лист напротязі 1 години. Також перевірте папку \"Спам\".</br>
-						</p>
-					");
+					echo("Неправильний нік!");
 				}
+			}
+			else {
+				echo("Неправильний E-Mail!");
 			}
 		}
 	}

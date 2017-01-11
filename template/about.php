@@ -1,7 +1,7 @@
 <table align='center'>
 	<tr>
 		<td>
-			<img id='leftimg' src='/appearance/images/about/lutsyuk.jpg' width='150' height='150' align='left' vspace='5' hspace='5'>
+			<img id='leftimg' src='<?php echo($site_address); ?>/template/images/about/lutsyuk.jpg' width='150' height='150' align='left' vspace='5' hspace='5'>
 		</td>
 		<td>
 			<p><strong>Луцик</strong></p>
@@ -13,7 +13,7 @@
 	</tr>
 	<tr>
 		<td>
-			<img src='/appearance/images/about/borys.jpg' width='150' height='150' align='left' vspace='5' hspace='5'>
+			<img src='<?php echo($site_address); ?>/template/images/about/borys.jpg' width='150' height='150' align='left' vspace='5' hspace='5'>
 		</td>
 		<td>
 				<p><strong>Борис</strong></p>
