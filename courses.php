@@ -113,5 +113,5 @@ switch($action) {
 
 }
 
-include_once("template/main.php");     //Підключаємо шаблон
+include_once("template/".$site_template."/main.php");     //Підключаємо шаблон
 ?>

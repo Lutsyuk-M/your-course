@@ -4,6 +4,7 @@
 
 $site_address = "http://your-course";     //Адреса сайту
 $site_title = "Your-Course";     //Заголовок сайту
+$site_template = "standart";
 
 /*  База Даних */
 

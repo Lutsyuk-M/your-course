@@ -26,7 +26,7 @@ if(isset($_SESSION["user_id"])) {
 else {
     $show_lesson_create_form = false;
 
-	echo("Для перегляду данного розділу, будь-ласка <a href='".$site_address."/index.php?action=auth'>авторизуйтесь</a>.");
+	echo("Для перегляду данного розділу, будь-ласка авторизуйтесь.");
 }
 
 if($show_lesson_create_form) {

@@ -3,7 +3,7 @@ defined('_INCLUDE_') or die('Shit happens!');
 
 if(!isset($user_id)) {
 	if(!isset($_SESSION["user_id"])) {
-		echo("Для перегляду данного розділу, будь-ласка <a href='".$site_address."/index.php?action=auth'>авторизуйтесь</a>.");
+		echo("Для перегляду данного розділу, будь-ласка авторизуйтесь.");
 	}
 	else {
 		goto user_profile_view;

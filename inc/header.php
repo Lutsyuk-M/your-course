@@ -4,6 +4,8 @@
 
 defined('_INCLUDE_') or die('Shit happens!');
 
+include_once("system/functions/global_func.php");
+
 if(!isset($_SESSION["user_nickname"])) {
 	echo("<div class='right'><a href='".$site_address."/index.php?action=auth'><button id='login_button'>Увійти</button></a></div>");     //Вставка кнопки входу
 }

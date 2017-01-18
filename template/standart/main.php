@@ -13,7 +13,7 @@ include_once("system/functions/global_func.php");
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<title>YourCourses</title>
 	<?php include('inc/scripts.php'); ?>
-	<link href='template/css/main-style.css' rel='stylesheet' type='text/css'>
+	<link href='/template/<?php echo($site_template); ?>/css/main-style.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -23,7 +23,7 @@ include_once("system/functions/global_func.php");
 	?>
 	<div id='page_content'>
 		<?php
-		include_once("template/".$page_content_inc.".php");
+		include_once("template/".$site_template."/".$page_content_inc.".php");
 		?>
 	</div>
 </body>

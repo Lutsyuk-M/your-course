@@ -18,5 +18,25 @@ function get_current_url() {
 	$current_url .= $_SERVER["REQUEST_URI"];
 
 	return $current_url;
-} 
+}
+
+function string_transfer_encode($string_to_encode) {
+	$string_to_encode = str_replace("&", "[amp]", $string_to_encode);
+	$string_to_encode = str_replace("=", "[equ]", $string_to_encode);
+	$string_to_encode = str_replace("?", "[que]", $string_to_encode);
+	$string_to_encode = str_replace(":", "[col]", $string_to_encode);
+	$string_to_encode = str_replace(".", "[dot]", $string_to_encode);
+
+	return $string_to_encode;
+}
+
+function string_transfer_decode($string_to_decode) {
+	$string_to_decode = str_replace("[amp]", "&", $string_to_decode);
+	$string_to_decode = str_replace("[equ]", "=", $string_to_decode);
+	$string_to_decode = str_replace("[que]", "?", $string_to_decode);
+	$string_to_decode = str_replace("[col]", ":", $string_to_decode);
+	$string_to_decode = str_replace("[dot]", ".", $string_to_decode);
+
+	return $string_to_decode;
+}
 ?>

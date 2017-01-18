@@ -28,5 +28,5 @@ else {
 		$user_data_array = mysql_fetch_array($user_data);
 }
 
-include_once("template/main.php");     //Головний файл шаблону
+include_once("template/".$site_template."/main.php");     //Головний файл шаблону
 ?>
