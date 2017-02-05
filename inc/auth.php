@@ -13,13 +13,14 @@ if(!isset($_SESSION["user_id"])) {
 				$user_password = htmlspecialchars(trim($_POST["password"]));
 				$user_email = strtolower(htmlspecialchars(trim($_POST["email"])));     //Обробляємо пошту і пароль
 
-				$user_data = mysql_query("SELECT id, nickname, password, user_group, verified FROM users WHERE email='$user_email'");     //Беремо з бази дані по потрібному E-Mail'у
-				$user_data_array = mysql_fetch_array($user_data);
+				$user_data = mysqli_query($db_key, "SELECT id, nickname, password, salt, user_group, verified FROM `users` WHERE email='$user_email'");     //Беремо з бази дані по потрібному E-Mail'у
+				$user_data_array = mysqli_fetch_array($user_data);
 				
 				if($user_data) {
-					$user_password_hash = md5(md5($user_password));     //Хешуємо пароль
+					$user_salt = $user_data_array["salt"];
+					$user_password_hash = md5($local_salt.md5($user_password).$user_salt);     //Хешуємо пароль
 					if($user_password_hash == $user_data_array["password"]) {     //Якщо хеш паролю з бази співпадає з хешем з бази - вхід відбувся
-						if ($user_data_array["verified"] == 1) {
+						if($user_data_array["verified"] == 1) {
 							$_SESSION["user_id"] = $user_data_array["id"];
 							$_SESSION["user_group"] = $user_data_array["user_group"];
 							$_SESSION["user_nickname"] = $user_data_array["nickname"];

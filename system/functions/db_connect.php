@@ -7,6 +7,5 @@ $db_user = "uY-C";     //Користувач
 $db_pass = "mandarin";     //Пароль
 $db_base = "your-course";     //Ім'я бази
 
-$db = mysql_connect($db_host,$db_user,$db_pass) or die(mysql_error());   //Підключення з використанням данних
-mysql_select_db($db_base,$db) or die(mysql_error());    //Вибір бази
+$db_key = mysqli_connect($db_host, $db_user, $db_pass, $db_base);
 ?>

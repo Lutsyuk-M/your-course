@@ -14,21 +14,27 @@ if(isset($_GET["action"])) {
 switch($action) {
 	case "auth":     //Вхід на сайт
 		include_once("inc/auth.php");
-		break;
+	break;
+	case "registration":     //Реєстрація
+		include_once("inc/registration.php");
+	break;
+	case "verification":     //Активація аккаунту
+		include_once("inc/verification.php");
+	break;
 	case "logout":     //Вихід з сайту
 		include_once("inc/logout.php");
-		break;
+	break;
 	case "about":     //Про нас
 		$page_content_inc = "about";
 		include_once("template/".$site_template."/main.php");
-		break;
+	break;
 	case "error_404":     //Помилка 404
 		$page_content_inc = "error_404";
 		include_once("template/".$site_template."/main.php");
-		break;
+	break;
 	default:
 		$page_content_inc = "courses";     //Поки-що тут виводяться курси, через те, що я не маю ідей, відносно того що сюди можна запихнути
 		include_once("template/".$site_template."/main.php");
-		break;
+	break;
 }
 ?>

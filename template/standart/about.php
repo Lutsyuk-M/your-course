@@ -1,3 +1,8 @@
+<?php
+defined('_INCLUDE_') or die('Shit happens!');
+?>
+
+
 <table align='center'>
 	<tr>
 		<td>

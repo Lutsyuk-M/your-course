@@ -6,12 +6,18 @@ $site_address = "http://your-course";     //Адреса сайту
 $site_title = "Your-Course";     //Заголовок сайту
 $site_template = "standart";
 
+$local_salt = "73p6It2XPeUYVliZ";
+
 /*  База Даних */
 
 $db_host = "localhost";     //Хост
 $db_user = "uY-C";     //Користувач
 $db_pass = "mandarin";     //Пароль
 $db_base = "your-course";     //Ім'я бази
+
+/*  Панель Адміністрації  */
+
+$adminpanel_min_usergroup = 4;
 
 /*  ReCAPTCHA */
 

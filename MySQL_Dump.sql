@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 11 2017 г., 17:05
--- Версия сервера: 5.5.48
--- Версия PHP: 5.3.29
+-- Время создания: Фев 05 2017 г., 17:27
+-- Версия сервера: 5.5.48-log
+-- Версия PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(3) NOT NULL,
   `nickname` varchar(45) NOT NULL,
   `password` varchar(50) NOT NULL,
+  `salt` int(4) NOT NULL,
   `firstname` varchar(17) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `email` varchar(200) NOT NULL,
@@ -91,17 +92,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `banned` tinyint(1) NOT NULL DEFAULT '0',
   `ban_reason` varchar(150) NOT NULL DEFAULT 'Відсутня.',
   `l_score` int(3) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=cp1251;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `nickname`, `password`, `firstname`, `lastname`, `email`, `user_group`, `courses_count`, `max_courses_count`, `rdate`, `verified`, `warn`, `banned`, `ban_reason`, `l_score`) VALUES
-(1, 'Cannoneer', '91d7ec1861812cc22053b64adbdf58d5', 'Максим', 'Луцюк', 'GettingStartedMax@gmail.com', 1, 0, 1, '2016-10-06 17:57:20', 1, 0, 0, 'Відсутня.', 15),
-(2, 'ValeronKonb', '91d7ec1861812cc22053b64adbdf58d5', '', '', 'lutsyuk11@yandex.ru', 1, 0, 1, '0000-00-00 00:00:00', 1, 0, 0, 'Відсутня.', 15),
-(3, 'Anton', '91d7ec1861812cc22053b64adbdf58d5', '', '', 'lutsyuk2002@mail.ru', 1, 0, 1, '2016-12-25 19:20:49', 1, 0, 0, 'Відсутня.', 15),
-(4, 'Valera', '91d7ec1861812cc22053b64adbdf58d5', '', '', 'lutsyuk2003@mail.ru', 1, 0, 1, '2016-12-25 19:44:13', 1, 0, 0, 'Відсутня.', 15);
+INSERT INTO `users` (`id`, `nickname`, `password`, `salt`, `firstname`, `lastname`, `email`, `user_group`, `courses_count`, `max_courses_count`, `rdate`, `verified`, `warn`, `banned`, `ban_reason`, `l_score`) VALUES
+(1, 'Cannoneer', '2a2d82300711d5a66f86dba48f419deb', 3927, 'Максим', 'Луцюк', 'GettingStartedMax@gmail.com', 1, 0, 1, '2016-10-06 17:57:20', 1, 0, 0, 'Відсутня.', 15),
+(2, 'ValeronKonb', '1dcd341ad1b64af7196d703eeabc95d9', 443, '', '', 'lutsyuk11@yandex.ru', 1, 0, 1, '0000-00-00 00:00:00', 1, 0, 0, 'Відсутня.', 15),
+(3, 'Anton', '77e41aa43e81301f368370910be3dd4c', 329, '', '', 'lutsyuk2002@mail.ru', 1, 0, 1, '2016-12-25 19:20:49', 1, 0, 0, 'Відсутня.', 15),
+(4, 'Valera', 'd5097602c423efd01b6fb2e74d517b1c', 9526, '', '', 'lutsyuk2003@mail.ru', 1, 0, 1, '2016-12-25 19:44:13', 1, 0, 0, 'Відсутня.', 15),
+(5, 'Antion', '3a5011be57feb7c583e26c0678a50728', 3, '', '', 'Valeroncheavbkfaslf', 0, 0, 0, '2017-01-16 22:01:16', 0, 0, 0, 'Відсутня.', 0),
+(6, 'sadh', '24e4015a020ebb02d060021fc99082ff', 60, '', '', 'asgg', 0, 0, 0, '2017-01-16 22:01:29', 0, 0, 0, 'Відсутня.', 0),
+(7, '#', 'd25217a3f897979baa62da1f9179ed6a', 8119, '', '', '#', 0, 0, 0, '2017-01-16 22:01:17', 0, 0, 0, 'Відсутня.', 0);
 
 -- --------------------------------------------------------
 
@@ -114,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `verification` (
   `user_id` int(4) NOT NULL,
   `verification_code` varchar(32) NOT NULL,
   `used` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `verification`
@@ -126,7 +130,10 @@ INSERT INTO `verification` (`id`, `user_id`, `verification_code`, `used`) VALUES
 (3, 0, 'akjvHLLOkLj1rN5fRPBhUj2lrfT0O7kT', 0),
 (4, 0, 'Tj8UR5Cy8Y6yTPtxU5gzmsrg1nsJ3Fiz', 0),
 (5, 2, 'nY6JT1fo173p6It2XPeUYVliZXsXjmD3', 1),
-(6, 4, 'bvUsAD7gfdCDaOaTNz1T93NYBiNZc1Jf', 1);
+(6, 4, 'bvUsAD7gfdCDaOaTNz1T93NYBiNZc1Jf', 1),
+(7, 5, 'TuCJv3dmim4Xd9MMInFJMKo0SidSYEOe', 0),
+(8, 6, 'vSr7vzNMoP80af6xhXXMHtpfUYILRZzG', 0),
+(9, 7, '3CaPmtfzmF4J2LfFJS7dvAiIOZ73DFau', 0);
 
 -- --------------------------------------------------------
 
@@ -194,12 +201,12 @@ ALTER TABLE `lessons`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `verification`
 --
 ALTER TABLE `verification`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT для таблицы `warnings`
 --

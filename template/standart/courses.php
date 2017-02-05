@@ -2,14 +2,14 @@
 defined('_INCLUDE_') or die('Shit happens!');
 
 if(isset($_SESSION["user_id"])) {
-    echo("<span class='right'><a href='".$site_address."/courses.php?action=create_course'>Створити курс</a></span>");
+    echo("<span class='right'><a href='".$site_address."/courses.php?action=course_create'>Створити курс</a></span>");
 }
 
 if($course_data == false) {
         echo("<p>За данним запитом не існує курсів!</p>");
 }
 else {
-    while($course_data_array = mysql_fetch_array($course_data))     //Вивід списку курсів у циклі
+    while($course_data_array = mysqli_fetch_array($course_data))     //Вивід списку курсів у циклі
     {
             printf("
                 <p>

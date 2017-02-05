@@ -1,4 +1,6 @@
 <?php
+defined('_INCLUDE_') or die('Shit happens!');
+
 $show_lesson_create_form = true;
 
 if(isset($_SESSION["user_id"])) {
